@@ -1,0 +1,170 @@
+/* ---- Base Rules ---- */
+/* General styles for the body, including background gradient and typography */
+body {
+  background: rgb(136, 203, 171);
+  background: linear-gradient(
+    0deg,
+    rgb(233, 94, 117) 0%,
+    rgb(185, 5, 110) 100%
+  );
+  margin: 0;
+  font-family: "Merriweather", serif;
+  color: #fff;
+}
+
+/* ---- Typography Rules ---- */
+/* Heading styles for better readability */
+h1 {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 3em;
+  margin: 2em 1rem;
+}
+
+@media only screen and (min-width: 35em) {
+  h1 {
+    font-size: 7em;
+    margin: 2em 4rem 1em;
+  }
+}
+
+h2 {
+  border-bottom: 1px solid rgb(15, 138, 138);
+  font-family: "Oxygen", Sans-Serif;
+  font-size: 3em;
+  color: #fff;
+}
+
+p {
+  line-height: 1.6em;
+  color: #eee;
+}
+
+/* ---- Layout Rules ---- */
+/* Styling for the main content sections */
+main {
+  margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+  min-height: 40vh;
+  padding-top: 3em;
+}
+
+section {
+  position: relative;
+  min-height: 80vh;
+}
+
+/* ---- Navigation Styles ---- */
+.navbar__menu ul {
+  padding-left: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navbar__menu li {
+  display: inline-block;
+}
+
+.navbar__menu .menu__link {
+  display: block;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #ddd;
+}
+
+/* Hover effect for menu links */
+.navbar__menu .menu__link:hover {
+  background: #706161;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+
+/* Active link styles */
+.navbar__menu .menu__link.active {
+  background: #444;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+
+/* ---- Header and Footer Styles ---- */
+/* Fixed header for better navigation */
+.page__header {
+  background: rgb(89, 53, 119);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Footer styling */
+.page__footer {
+  background: #000;
+  padding: 3em;
+  color: #fff;
+}
+
+.page__footer p {
+  color: #fff;
+}
+
+/* ---- Section and Theming Rules ---- */
+/* General padding and alignment for landing content */
+.landing__container {
+  padding: 1em;
+  text-align: left;
+}
+
+@media only screen and (min-width: 35em) {
+  .landing__container {
+    max-width: 50em;
+    padding: 4em;
+  }
+}
+
+/* Alternating section styles for a dynamic layout */
+section:nth-of-type(even) .landing__container {
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+/* ---- Background Circles for Decoration ---- */
+section:nth-of-type(odd) .landing__container::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.187);
+  position: absolute;
+  z-index: -5;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+/* Animated effects for active sections */
+section.your-active-class {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+section.your-active-class .landing__container::before {
+  opacity: 1;
+  animation: rotate 4s linear 0s infinite forwards;
+}
+
+/* Keyframe animations for decorative elements */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
